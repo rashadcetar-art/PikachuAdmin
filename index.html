@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101828"><title>PikachuAdmin</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="top"><div class="brand"><div class="mark">P</div><div><b>PikachuAdmin</b><small>Device Verification Console</small></div></div><button id="logoutBtn" class="btn ghost hidden">Keluar</button></header>
+    <section id="configNotice" class="notice hidden"></section>
+    <section id="loginView" class="login card">
+      <div class="eyebrow">ADMIN ACCESS</div><h1>Masuk ke dashboard</h1><p class="muted">Gunakan akun admin yang sudah didaftarkan melalui Supabase.</p>
+      <form id="loginForm"><label>Email admin<input id="email" type="email" autocomplete="username" required placeholder="admin@email.com"></label><label>Password<input id="password" type="password" autocomplete="current-password" required placeholder="Password"></label><button class="btn primary full" type="submit">Masuk</button><p id="loginError" class="error"></p></form>
+    </section>
+    <section id="appView" class="hidden">
+      <div class="welcome"><div><div class="eyebrow">OVERVIEW</div><h1>Dashboard</h1><p class="muted" id="signedInAs"></p></div><button id="refreshBtn" class="btn ghost">↻ Perbarui</button></div>
+      <div class="stats"><article class="stat"><span>Total perangkat</span><b id="totalCount">0</b></article><article class="stat"><span>Menunggu</span><b id="pendingCount">0</b></article><article class="stat"><span>Disetujui</span><b id="approvedCount">0</b></article><article class="stat"><span>Ditolak</span><b id="rejectedCount">0</b></article></div>
+      <section class="card add-card"><div><div class="eyebrow">DEVICE MANAGEMENT</div><h2>Tambah perangkat</h2></div><form id="addForm" class="add-form"><input id="newDeviceId" required maxlength="160" placeholder="Masukkan Device ID"><input id="newOwner" maxlength="160" placeholder="Nama pemilik (opsional)"><button class="btn primary" type="submit">＋ Tambah</button></form><p id="addMessage" class="muted"></p></section>
+      <section class="card table-card"><div class="table-head"><div><div class="eyebrow">REGISTRY</div><h2>Daftar perangkat</h2></div><input id="searchInput" class="search" placeholder="Cari Device ID / pemilik…"></div><div class="filters"><button class="filter active" data-filter="all">Semua</button><button class="filter" data-filter="pending">Menunggu</button><button class="filter" data-filter="approved">Disetujui</button><button class="filter" data-filter="rejected">Ditolak</button></div><div class="table-wrap"><table><thead><tr><th>Device ID</th><th>Pemilik</th><th>Status</th><th>Check-in</th><th>Aksi</th></tr></thead><tbody id="deviceRows"><tr><td colspan="5" class="empty">Memuat data…</td></tr></tbody></table></div><p id="tableMessage" class="muted"></p></section>
+    </section>
+    <footer> PIKACHUADMIN <span>•</span> Secure device management</footer>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="/config.js"></script><script src="/app.js"></script>
+</body></html>
